@@ -8,7 +8,7 @@
 ```bash
 git clone https://github.com/Walizada300/node_express_mongodb_backend.git
 ```
-### 3. داخل پروژه فولدر پروژه شوید
+### 3. داخل فولدر پروژه شوید
 ```bash
 cd node_express_mongodb_backend
 ```
