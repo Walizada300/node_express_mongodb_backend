@@ -1,0 +1,57 @@
+<%- include('layout/header') %>
+
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row justify-content-center mb-4">
+            <div class="col-lg-8">
+                <div class="text-center">
+                    <h2 class="fw-bold text-primary">📜 جزئیات حدیث شریف</h2>
+                    <p class="text-muted">اطلاعات کامل در مورد حدیث انتخاب‌شده</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body p-4">
+                        <ul class="list-group list-group-flush">
+
+                            <li class="list-group-item">
+                                <strong class="text-success">🆔 نمبر حدیث:</strong>
+                                <span class="ms-2"><%= hadis.number %></span>
+                            </li>
+
+                            <li class="list-group-item">
+                                <strong class="text-info">🕌 متن حدیث شریف:</strong>
+                                <p class="mt-2 mb-0 text-justify"><%= hadis.title %></p>
+                            </li>
+
+                            <li class="list-group-item">
+                                <strong class="text-primary">🌐 ترجمه دری:</strong>
+                                <p class="mt-2 mb-0"><%= hadis.dari %></p>
+                            </li>
+
+                            <li class="list-group-item">
+                                <strong class="text-warning">🌍 ترجمه پشتو:</strong>
+                                <p class="mt-2 mb-0"><%= hadis.pashto %></p>
+                            </li>
+
+                            <li class="list-group-item">
+                                <strong class="text-danger">🌎 ترجمه انگلیسی:</strong>
+                                <p class="mt-2 mb-0"><%= hadis.english %></p>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="card-footer text-center bg-white border-top-0">
+                        <a href="/hadis" class="btn btn-outline-secondary me-2">⬅ بازگشت</a>
+                        <a href="/hadis/update/<%= hadis._id %>" class="btn btn-warning text-white">✏️ ویرایش</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('layout/footer') %>

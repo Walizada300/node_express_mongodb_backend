@@ -1,0 +1,79 @@
+<%- include('layout/header')  %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <section class="py-5">
+    <div class="container">
+        <% if (message) { %>
+            <div class="alert alert-<%= message.type %> alert-dismissible fade show" role="alert">
+                <%= message.message %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <% } %>
+
+        <% if (message) { %>
+        <div class="alert alert-<%= message.type %> alert-dismissible fade show" role="alert">
+            <%= message.message %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <% } %>
+
+
+        <div class="row mb-4">
+            <div class="col d-flex justify-content-between align-items-center">
+                <h2 class="text-success fw-bold m-0">لیست احادیث</h2>
+                <a href="/add-hadis" class="btn btn-outline-primary">+ حدیث جدید</a>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+        <table id="hadisTable" class="table table-bordered table-striped table-hover align-middle">
+            <thead class="table-success text-center">
+            <tr>
+                <th>#</th>
+                <th width="150">نمبر حدیث</th>
+                <th>متن حدیث (خلاصه)</th>
+                <th>عملیات</th>
+            </tr>
+            </thead>
+            <tbody>
+
+                <% if (hadis.length === 0) { %>
+                    <tr>
+                        <td colspan="4" class="text-center">هیچ حدیثی موجود نیست.</td>
+                    </tr>
+                <% } %>
+
+                <% hadis.forEach((hadis, index) => { %>
+                        <tr>
+                        <td class="text-center"><%= index+1 %></td>
+                        <td class="text-center"><%= hadis.number %></td>
+                        <td>
+                          <%= hadis.title %>
+                        </td>
+                        <td class="text-center" width="200">
+                            <a href="/hadis/detail/<%= hadis._id %>" class="btn btn-sm btn-info text-white">دیدن</a>
+                            <a href="/hadis/update/<%= hadis._id %>" class="btn btn-sm btn-warning">ویرایش</a>
+                            <form action="/hadis/delete/<%= hadis._id %>?_method=DELETE" method="POST" class="d-inline">
+                                <button type="submit" class="btn btn-sm btn-danger"
+                                onclick="return confirm('آیا مطمئن هستید که می‌خواهید این حدیث را حذف کنید؟')">
+                                حذف
+                                </button>
+                            </form>
+                        </td>
+                        </tr>
+                    <% }) %>    
+
+            </tbody>
+        </table>
+        </div>
+    </div>
+    </section>
+
+
+        </div>
+    </div>
+</div>
+
+<%- include('layout/footer')  %>

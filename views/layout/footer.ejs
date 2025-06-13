@@ -1,0 +1,27 @@
+    <!-- jQuery (اگر اضافه نیست) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function () {
+            $('#hadisTable').DataTable({
+            language: {
+                search: "جستجو:",
+                lengthMenu: "نمایش _MENU_ حدیث",
+                info: "نمایش _START_ تا _END_ از مجموع _TOTAL_ حدیث",
+                paginate: {
+                next: "بعدی",
+                previous: "قبلی"
+                },
+                zeroRecords: "هیچ حدیثی یافت نشد",
+            },
+            pageLength: 10, // تعداد پیش‌فرض
+            lengthMenu: [5, 10, 25, 50, 100,500,1000,10000], // گزینه‌های انتخابی
+            });
+        });
+    </script>
+</body>
+</html>

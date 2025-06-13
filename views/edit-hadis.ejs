@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<a href="/hadis">بازگشت</a>
+
+
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4 text-warning fw-bold">ویرایش حدیث</h2>
+
+        <form class="bg-white p-4 shadow rounded" action="/hadis/<%= hadis._id %>?_method=PUT" method="POST">
+            <div class="mb-3">
+                <label class="form-label">نمبر حدیث</label>
+                <input type="text" name="number" class="form-control" value="<%= hadis.number %>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">حدیث شریف</label>
+                <textarea rows="5" name="title" class="form-control"><%= hadis.title %></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">ترجمه دری</label>
+                <textarea rows="5" name="dari" class="form-control"><%= hadis.dari %></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">ترجمه پشتو</label>
+                <textarea rows="5" name="pashto" class="form-control"><%= hadis.pashto %></textarea>
+            </div>
+            <div class="mb-4">
+                <label class="form-label">ترجمه انگلیسی</label>
+                <textarea rows="5" name="english" class="form-control"><%= hadis.english %></textarea>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-success px-4 py-2">ذخیره تغییرات</button>
+                <a href="/hadis" class="btn btn-secondary ms-2">بازگشت</a>
+            </div>
+        </form>
+    </div>
+</section>
+<%- include('layout/footer') %>
